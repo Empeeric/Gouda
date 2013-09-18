@@ -43,7 +43,7 @@ var postsSchema = new mongoose.Schema({
 var post = mongoose.model('post', postsSchema);
 
 //initialize Gouda
-gouda.init([user, posts], app, mongoose);
+gouda.init(app, mongoose);
 
 http.createServer(app).listen(8080);
 ```
