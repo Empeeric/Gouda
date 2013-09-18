@@ -52,6 +52,34 @@ mongoose.connect('mongodb://localhost/gouda');
 http.createServer(app).listen(8080);
 ```
 
-Go to `http://localhost:8080/admin` and login with `username: admin`, `password: admin`.   
+Go to `http://localhost:8080/admin` and login with `username: admin`, `password: admin`.
 Say cheese :)
+
+##Advanced Gauda Options
+
+```javascript
+var options = {
+    //root path for Gouda
+    path = '/cms',
+
+    //super admin user
+    admin = {
+        user: admin,
+        password: 1234
+    },
+
+    //sections. the order will affect sections and models listed in each
+    //all the rest of redisterd models will go to default section
+    sections: [
+        { label: 'CMS', models: ['page', 'post', 'gallery'] },
+        { label: 'Configuration', models: ['config', 'user', 'template'] }
+    ],
+
+    //default section label. default is Main
+    default_section: 'Miscellaneous'
+}
+
+//initialize Gouda
+gouda.init(app, mongoose, [post, user, gallery, template, config], options);
+```
 
