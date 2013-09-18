@@ -29,7 +29,7 @@ var userSchema = new mongoose.Schema({
 })
 
 //mongoose model
-var user = mongoose.model('user', postsSchema);
+var user = mongoose.model('user', userSchema);
 
 //mongoose schema
 var postsSchema = new mongoose.Schema({
