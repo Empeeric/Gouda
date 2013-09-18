@@ -88,7 +88,13 @@ gouda.init(app, mongoose, [post, user, gallery, template, config], options);
 ```javascript
 var schema = new mongoose.Schema({
     title: { type: String, gouda: { label: 'Post Title' } },
-    description: { type: String, gouda: { type: 'rte', options: { language: 'he', forcePasteAsPlainText: true, toolbar: ['Bold','Italic','Underline'] } } },
+    description: {
+        type: String,
+        gouda: {
+            type: 'rte',
+            options: { language: 'he', forcePasteAsPlainText: true, toolbar: ['Bold','Italic','Underline'] }
+        }
+    },
     picture: { type: Object, gouda: { type: 'cloudinary' },
     show: { type: Boolean, default: true, gouda: { label: 'Active Post' } },
     date: { type: Date, default: Date.now, gouda: { edit: 'disabled' } }
