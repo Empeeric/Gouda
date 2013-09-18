@@ -92,7 +92,11 @@ var schema = new mongoose.Schema({
         type: String,
         gouda: {
             type: 'rte',
-            options: { language: 'he', forcePasteAsPlainText: true, toolbar: ['Bold','Italic','Underline'] }
+            options: {
+                language: 'he',
+                forcePasteAsPlainText: true,
+                toolbar: ['Bold','Italic','Underline']
+            }
         }
     },
     picture: { type: Object, gouda: { type: 'cloudinary' },
