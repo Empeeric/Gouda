@@ -1,7 +1,7 @@
 Gouda
 =====
 
-Say cheese! Your mongoose scaffolding problems are over!
+>Say cheese! Your mongoose scaffolding problems are over!
 
 ##Installation
 
@@ -52,6 +52,6 @@ mongoose.connect('mongodb://localhost/gouda');
 http.createServer(app).listen(8080);
 ```
 
-go to `http://localhost:8080/admin` and login with `username: admin`, `password: admin`.
-that's it :)
+Go to `http://localhost:8080/admin` and login with `username: admin`, `password: admin`.
+Say cheese :)
 
