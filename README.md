@@ -3,13 +3,13 @@ Gouda
 
 >Say cheese! Your mongoose scaffolding problems are over!
 
-##Installation
+###Installation
 
 ```
 npm install gouda
 ```
 
-##Inisialization
+###Inisialization
 
 ```javascript
 
@@ -55,7 +55,7 @@ http.createServer(app).listen(8080);
 Go to `http://localhost:8080/admin` and login with `username: admin`, `password: admin`.
 Say cheese :)
 
-##Advanced Gauda Options
+###Advanced Gauda Options
 
 ```javascript
 var options = {
@@ -83,3 +83,26 @@ var options = {
 gouda.init(app, mongoose, [post, user, gallery, template, config], options);
 ```
 
+###Model Options
+
+```javascript
+var schema = new mongoose.Schema({
+    title: { type: String, gouda: { label: 'Post Title' } },
+    description: { type: String, gouda: { type: 'rte' } },
+    picture: { type: Object, gouda: { type: 'cloudinary' },
+    show: { type: Boolean, default: true, gouda: { label: 'Active Post' } },
+    date: { type: Date, default: Date.now, gouda: { add: 'disabled' } }
+})
+
+//mongoose model
+var model = mongoose.model('post', schema);
+
+model.gouda = {
+    label: 'Blog Posts',
+    list: ['title', 'picture', 'date', 'show'],
+    add: ['date', 'title', 'picture', 'description', 'show'],
+    edit: ['title', 'picture', 'description', 'date', 'show'],
+    sort: { date: 'desc' },
+    filter: ['title', 'date']
+}
+```
