@@ -91,7 +91,7 @@ var schema = new mongoose.Schema({
     description: { type: String, gouda: { type: 'rte' } },
     picture: { type: Object, gouda: { type: 'cloudinary' },
     show: { type: Boolean, default: true, gouda: { label: 'Active Post' } },
-    date: { type: Date, default: Date.now, gouda: { add: 'disabled' } }
+    date: { type: Date, default: Date.now, gouda: { edit: 'disabled' } }
 })
 
 //mongoose model
