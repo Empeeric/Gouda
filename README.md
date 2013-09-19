@@ -1,7 +1,7 @@
 Gouda
 =====
 
->Say cheese! Your mongoose scaffolding problems are over!
+>Say cheese! Your mongoose scaffolding problems are over.
 
 ###Installation
 
@@ -42,7 +42,7 @@ var postsSchema = new mongoose.Schema({
 var post = mongoose.model('post', postsSchema);
 
 //initialize Gouda
-gouda.init(app, mongoose);
+gouda.init(app);
 
 //connect to mongodb
 mongoose.connect('mongodb://localhost/gouda');
@@ -59,10 +59,10 @@ Say cheese :)
 ```javascript
 var options = {
     //root path for Gouda
-    path = '/cms',
+    path: '/cms',
 
     //super admin user
-    admin = {
+    admin: {
         user: admin,
         password: 1234
     },
@@ -76,7 +76,7 @@ var options = {
 }
 
 //initialize Gouda
-gouda.init(app, mongoose, [post, user, gallery, template, config], options);
+gouda.init(app, options);
 ```
 
 ###Model Options
