@@ -69,7 +69,6 @@ var options = {
     },
 
     //sections. the order will affect sections and models listed in each
-    //all the rest of redisterd models will go to default section
     sections: [
         { label: 'Main', models: '*' },
         { label: 'CMS', models: ['page', 'post', 'gallery'] },
