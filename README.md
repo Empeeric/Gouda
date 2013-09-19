@@ -12,7 +12,6 @@ npm install gouda
 ###Inisialization
 
 ```javascript
-
 var http = require('http'),
     express = require('express'),
     mongoose = require('mongoose'),
@@ -88,7 +87,7 @@ var schema = new mongoose.Schema({
     description: {
         type: String,
         gouda: {
-            type: 'rte',
+            type: 'ckeditor',
             options: {
                 language: 'he',
                 forcePasteAsPlainText: true,
