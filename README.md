@@ -58,16 +58,16 @@ Say cheese :)
 
 ```javascript
 var options = {
-    //root path for Gouda
+    // root path for Gouda
     path: '/cms',
 
-    //super admin user
+    // super admin user
     admin: {
         user: admin,
         password: 1234
     },
 
-    //sections. the order will affect sections and models listed in each
+    // sections. the order will affect sections and models listed in each
     sections: [
         { label: 'Main', models: '*' },
         { label: 'CMS', models: ['page', 'post', 'gallery'] },
@@ -75,7 +75,7 @@ var options = {
     ]
 }
 
-//initialize Gouda
+// initialize Gouda
 gouda.init(app, options);
 ```
 
@@ -84,23 +84,23 @@ gouda.init(app, options);
 ```javascript
 var schema = new mongoose.Schema({
     title: { type: String, gouda: { label: 'Post Title' } },
-    description: {
-        type: String,
-        gouda: {
-            type: 'ckeditor',
-            options: {
-                language: 'he',
-                forcePasteAsPlainText: true,
-                toolbar: ['Bold','Italic','Underline']
-            }
-        }
-    },
+    description: { type: String },
     picture: { type: Object, gouda: { type: 'cloudinary' },
     show: { type: Boolean, default: true, gouda: { label: 'Active Post' } },
     date: { type: Date, default: Date.now, gouda: { edit: 'disabled' } }
 })
 
-//mongoose model
+// separate Gouda for a cleaner schema
+schema.path('description').gouda = {
+    type: 'ckeditor',
+    options: {
+        language: 'he',
+        forcePasteAsPlainText: true,
+        toolbar: ['Bold','Italic','Underline']
+    }
+}
+
+// mongoose model
 var model = mongoose.model('post', schema);
 
 model.gouda = {
