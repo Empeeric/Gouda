@@ -112,3 +112,26 @@ model.gouda = {
     filter: ['title', 'date']
 }
 ```
+
+###Parent -> Child Schema
+
+>If you want a tree schema with hierarchical parent->child behavior
+
+```javascript
+var schema = new mongoose.Schema({
+    parent: { type: mongoose.Schema.Types.ObjectId, ref: 'page' },
+    title: String,
+    url: { type: String, gouda: { type: 'seo' } },
+    order: { type: Number, gouda: { hide: true } },
+    show: Boolean
+})
+
+var model = mongoose.model('page', schema);
+
+model.gouda = {
+    tree: true, // enable hierarchical tree behavior
+    parent: 'parent' // parent ref field
+}
+```
+
+Now you can traverse and add child element to parent elements.
