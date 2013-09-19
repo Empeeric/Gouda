@@ -1,15 +1,15 @@
 Gouda
 =====
 
->Say cheese! Your mongoose scaffolding problems are over!
+>Say cheese! Your mongoose scaffolding problems are over.
 
-###Installation
+### Installation
 
 ```
 npm install gouda
 ```
 
-###Inisialization
+### Initialisation
 
 ```javascript
 var http = require('http'),
@@ -17,20 +17,20 @@ var http = require('http'),
     mongoose = require('mongoose'),
     gouda = require('gouda');
 
-//express 3 app
+// express app
 var app = express();
 
-//mongoose schema
+// mongoose schema
 var userSchema = new mongoose.Schema({
     name: String,
     password: String,
     active: Boolean
 })
 
-//mongoose model
+// mongoose model
 var user = mongoose.model('user', userSchema);
 
-//mongoose schema
+// mongoose schema
 var postsSchema = new mongoose.Schema({
     title: String,
     description: String,
@@ -38,16 +38,16 @@ var postsSchema = new mongoose.Schema({
     date: Date
 })
 
-//mongoose model
+// mongoose model
 var post = mongoose.model('post', postsSchema);
 
-//initialize Gouda
-gouda.init(app, mongoose);
+// initialize Gouda
+app.use('/admin', gouda(app))
 
-//connect to mongodb
+// connect to mongodb
 mongoose.connect('mongodb://localhost/gouda');
 
-//start http server with express app
+// start http server with express app
 http.createServer(app).listen(8080);
 ```
 
@@ -59,10 +59,10 @@ Say cheese :)
 ```javascript
 var options = {
     //root path for Gouda
-    path = '/cms',
+    path: '/cms',
 
     //super admin user
-    admin = {
+    admin: {
         user: admin,
         password: 1234
     },
@@ -76,7 +76,7 @@ var options = {
 }
 
 //initialize Gouda
-gouda.init(app, mongoose, [post, user, gallery, template, config], options);
+gouda.init(app, options);
 ```
 
 ###Model Options
