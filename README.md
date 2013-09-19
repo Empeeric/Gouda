@@ -104,12 +104,12 @@ schema.path('description').gouda = {
 var model = mongoose.model('post', schema);
 
 model.gouda = {
-    label: 'Blog Posts',
-    list: ['title', 'picture', 'date', 'show'],
-    add: ['date', 'title', 'picture', 'description', 'show'],
-    edit: ['title', 'picture', 'description', 'date', 'show'],
-    sort: { date: 'desc' },
-    filter: ['title', 'date']
+    label: 'Blog Posts', // model label
+    list: ['title', 'picture', 'date', 'show'], // fields in list view (table of documents)
+    add: ['date', 'title', 'picture', 'description', 'show'], // fields in add view
+    edit: ['title', 'picture', 'description', 'date', 'show'], // fields in edit view
+    sort: { date: 'desc' }, // sorting data by date field
+    filter: ['title', 'date'] // filter documents fields
 }
 ```
 
@@ -130,7 +130,8 @@ var model = mongoose.model('page', schema);
 
 model.gouda = {
     tree: true, // enable hierarchical tree behavior
-    parent: 'parent' // parent ref field
+    parent: 'parent' // parent ref field,
+    sort: { order: 'asc' } // sorting by order field
 }
 ```
 
