@@ -35,7 +35,7 @@ var post = mongoose.model('posts', postsSchema);
 mongoose.connect('mongodb://localhost/gouda');
 
 // initialize Gouda
-app.use('/admin', gouda([options]));
+app.use('/admin', gouda());
 
 // start http server with express app
 http.createServer(app).listen(8080);
